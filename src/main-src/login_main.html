@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><!-- <meta name="google-signin-client_id" content="372958756063-uh8oqjjsl7p5p5kbqtkeqgi54htasm4h.apps.googleusercontent.com" > -->
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<title>Login Page</title>
+	<link rel="stylesheet" href="./login_main.css">
+	
+<link rel="shortcut icon"  type="image/png" href="./assets/nit-logo.png">
+<script>
+	function login(){
+		window.open("http://localhost/ushh1/src/main-src/requests_page.html","_self");
+	}
+</script>
+</head>
+<body>
+    
+	<div class="background">
+		<div class="background-circles blurbg">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	 <div class="container">
+		<div class="card">
+			<h1>Login Page</h1>
+			<form>
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" placeholder="Enter your username">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" placeholder="Enter your password">
+
+			<button type="submit">Login</button>
+
+
+
+			<script src="https://accounts.google.com/gsi/client" async defer></script>
+			<div id="g_id_onload"
+			data-client_id="372958756063-uh8oqjjsl7p5p5kbqtkeqgi54htasm4h.apps.googleusercontent.com"
+			data-context="signin"
+			data-auto_prompt="true"
+			data-callback="handleCredentialResponse"
+			data-ux_mode="popup"
+			data-login_uri="http://localhost/ushh1/src/main-src/requests_page.html"
+			data-nonce=""
+			data-itp_support="true">
+	   </div>
+	   
+	   <div class="g_id_signin"
+			data-type="standard"
+			data-shape="pill"
+			data-theme="filled_blue"
+			data-text="continue_with"
+			data-size="large"
+			data-logo_alignment="left"
+			data-width="50px">
+	   </div>
+
+
+<script> 
+
+
+
+
+function handleCredentialResponse(response) {
+	
+  if (response.credential) {
+    // User is signed in
+    
+    const idToken = response.credential;
+	console.log('hi');
+	console.log(idToken);
+	localStorage.setItem('idToken', idToken);
+login();
+
+
+    
+  } else {
+    // User is signed out
+    console.log('User is signed out');
+  }
+}
+</script>
+
+</form>
+
+</div>
+
+
+
+	<button class="donate" onclick="window.open('./donation.html')">Donate</button>
+		
+       
+	
+    <img class="img2" src="./assets/logo_right_aligned.png" alt="">
+</div> 
+</body>
+</html>

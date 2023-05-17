@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+
+body{
+    color: white;
+    background-color: #001242;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dropbtn{
+    width: 9%;
+    margin-left: auto;
+    margin-right:5% ;
+}
+.logo{
+    margin-left: auto;
+    width: 100px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.info{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+.icon{
+    width: 30%;
+    clip-path: circle(50%);
+}
+
+.dropdown-content{
+    position: absolute;
+    display: none;
+    width: 12%;
+    background-color: #001242;
+    box-shadow: 0px 0xp 11px red;
+}
+
+.dropbtn:hover .dropdown-content{
+    display: block; 
+    padding-top:1% ; 
+    padding-bottom: 1%;
+    border-radius: 20px;
+    box-shadow:1px 1px 12px cyan;
+}
+
+.unavbar{
+    text-align: center;
+    text-shadow: 0px 0px 2px  gold;
+}
+
+.top_req{
+    width: 90%;
+    padding-top: 2%;
+    padding-left: 10%;
+    font-size: larger;
+}
+
+.left{
+    width: 70%;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+}
+
+.signo{
+    width: 60%;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    font-size: larger;
+    box-shadow: 0px 0px 5px white;
+}
+
+.signo:active{
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.642);
+    transform: scale(0.9);
+}
+
+/* ===================================================================================== */
+                                /* here on wards old */
+/* ===================================================================================== */
+
+.money{
+    font-size: 100%;
+    width: 100%;
+    float: right;
+    display: flex   ;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px 3px aqua; 
+    
+}
+
+.commmunity{
+    margin-top: 12%;
+    padding-top: 1%;
+    text-align: center;
+    width: 100%;
+    float: right;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #0075F2;
+    box-shadow: 2px 2px 12px 4px rgba(0, 28, 48, 0.582);
+    cursor: pointer;
+    font-size: larger;
+    font-weight: 500;
+    
+}
+
+.discord{
+    filter:saturate(10);
+
+    width: 100%;
+    transform: scale(0.7);
+    transition: all 0.3s ease;
+}
+
+.discord:hover{
+    transform: scale(0.8);
+    filter: drop-shadow(0px 0px 12px  #004890) saturate(10);
+}
+
+.discord:active{
+    transform: scale(0.75);
+}
+.subreq{
+    padding-right: 5%;
+}
+
+
+.like_btn{
+    display: flex;
+    grid-row: 1;
+    align-items: self-end;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    color: white;
+    font-size: 100%;
+    border-style:hidden ;
+    transition: all 0.2s ease;
+}
+
+.like_section{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 100%;
+    
+}
+
+#count{
+    padding: 3%;
+}
+.like{
+    width: 30px; 
+    height: auto;
+    filter: invert(1);
+    padding-right: 0.5%;
+    fill: white;
+    cursor: pointer;
+}
+.line {
+    margin-top: 3%;
+    height: 1px;
+    background: rgb(107, 143, 185);
+  }
+/* .bg{
+    position: absolute;
+    z-index: -3;
+    width: 99vw;
+    height: 110%;
+    top: -1px;
+    left: -1px;
+    overflow: hidden;
+    background-image: linear-gradient(135deg,black,black,grey,blue);
+
+} */
+
+.bg2{
+    position: static;
+    z-index: -300;
+    width: 99vw;
+    height: 200vh;
+    top: -1px;
+    left: -1px;
+    overflow: hidden;
+    background-image: linear-gradient(135deg,black,black,grey,blue);
+
+}
+
+.bg :nth-child(1){
+    position: absolute;
+    background-color: #0075F2;
+    border-radius: 40% 60% 34% 50%;
+    width:70%;
+    height:70%;
+    top: 30%;
+    left: 5%;
+    box-shadow:inset 0px 0px 550px black ;
+    z-index: -300;
+    animation: bloom 5s infinite linear;
+    
+}
+.bg :nth-child(2){
+    position: absolute;
+    background-color: #093e5e;
+    border-radius: 40% 60% 34% 50%;
+    width:50%;
+    height:70%;
+    top: 60%;
+    left: 60%;
+    z-index: -300;
+    filter: blur(100px);
+    animation: bloom 5s infinite linear;
+}
+.bg :nth-child(3){
+    position: absolute;
+    background-color: #001242;
+    border-radius: 60% 40% 54% 30%;
+    width:40%;
+    height:50%;
+    bottom: 60%;
+    right: 0%;
+    filter: blur(100px);
+    z-index: -300;
+    animation: bloom 5s infinite linear;
+}
+.bg2 :nth-child(1){
+    position: absolute;
+    background-color: #0075F2;
+    border-radius: 40% 60% 34% 50%;
+    width:70%;
+    height:70%;
+    top: 30%;
+    left: 5%;
+    box-shadow:inset 0px 0px 550px black ;
+    z-index: -300;
+    animation: bloom 5s infinite linear;
+    
+}
+.bg2 :nth-child(2){
+    position: absolute;
+    background-color: #093e5e;
+    border-radius: 40% 60% 34% 50%;
+    width:50%;
+    height:70%;
+    top: 60%;
+    left: 60%;
+    z-index: -300;
+    filter: blur(100px);
+    animation: bloom 5s infinite linear;
+}
+.bg2 :nth-child(3){
+    position: absolute;
+    background-color: #001242;
+    border-radius: 60% 40% 54% 30%;
+    width:40%;
+    height:50%;
+    bottom: 60%;
+    right: 0%;
+    filter: blur(100px);
+    z-index: -300;
+    animation: bloom 5s infinite linear;
+}
+
+@keyframes bloom{
+    0%{
+        filter: blur(130px);
+        border-radius: 60% 40% 54% 30%;
+    }
+    
+    50%{
+        
+        filter: blur(70px);
+        border-radius: 30% 54% 40% 60%;
+    }
+    
+    100%{
+        
+        filter: blur(130px);
+        border-radius: 60% 40% 54% 30%;
+    }
+}

@@ -1,0 +1,249 @@
+body{
+
+  margin-left: 0;
+    margin-right: 0%;
+    background-color: white;
+    z-index: -3;
+}
+
+
+.logo{
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 5%;
+    height: 5%;
+}
+
+/* style the header */
+header {
+    size: 10%;
+    background-color: #333;
+    padding: 10px;
+    font-size: 140%;
+    
+  }
+  
+  /* style the navigation links */
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  nav li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    text-decoration: underline;
+  }
+  
+.top_titles{
+   color: white;
+   text-shadow: 0px 2px 12px black; 
+   font-family: sans-serif;
+   height: 90%;
+   display: flex;
+   align-items: center;
+   justify-content: left;
+   padding-right: 3%;
+   border: #333;
+   box-shadow: 0px 2px 5px black;
+   position: sticky;
+   top: 0;
+   background-color:  #0f5791;
+   z-index: 5;
+}
+
+.spacer{
+    flex-grow: 1;
+}
+
+
+.college {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .college h2 {
+    text-align: center;
+  }
+.donate{
+    display: flex;
+    justify-content: right;
+    
+}
+
+
+.ways{
+    height: 90vh;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: block;
+    align-content: center;
+    justify-content: left;
+
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    animation: wipe-in-up 1s ease-out;
+}
+
+
+    
+
+  
+  @keyframes wipe-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+.ways_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img_ways{
+    height:auto;
+    width: 90%;
+    animation: open 2s linear;
+}
+
+@keyframes open{
+  0%{
+    
+    clip-path: circle(0% at center);
+  }
+
+  100%{
+    clip-path: circle(100% at center)
+  }
+}
+.ways_container{
+    display: inline-flex;
+    font-size: 120%;
+    background-color: #ffffff;
+}
+
+
+
+/* .donate{
+    color: white;
+    font-size: 200%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+} */
+/* .sdonate{
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    background-color: rgb(209, 0, 0);
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+} */
+
+
+/* from here tables means ways to donate thorugh online ,e-collect etc etc.  */
+
+
+.tagdiv{
+    margin-top: 10%;
+    border: 1px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 2px 16px #495867;
+    border-radius: 10px;
+    animation: wipe-in-up 1s ease-out;
+}
+
+.borderdiv{
+    
+    display: flex;
+    justify-content: left;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(0, 0, 163);
+}
+
+p h1{
+    padding-left: 3%;
+    padding-right: 3%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.grid_p { 
+    background-color: #def9ff;
+    padding-top: 2%;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 20px; 
+    
+
+} 
+
+.transp{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: rgb(255, 255, 255);
+   
+}
+.child1 { 
+    margin: 10px;
+     
+}
+
+.child2 { 
+    margin: 10px; 
+}
+.child3 { 
+    margin: 10px; 
+}
+
+.radio{
+  background-color: white;
+  padding: 2% 2%;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  box-shadow: 0px 0px 5px rgb(0, 157, 255);
+  transition: all 0.3s ease;
+}
+
+.radio:hover {
+  filter: invert();
+  outline:none ;
+}
+
+.radio:active {
+  background-color: red;
+  box-shadow: 0px 0px 5px rgb(255, 60, 0);
+  transform: translateY(4px);
+}

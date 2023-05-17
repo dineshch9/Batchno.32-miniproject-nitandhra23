@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Suggestions page</title>
+    <link rel="stylesheet" href="req_mod.css">
+    <link rel="shortcut icon" type="image/png" href="./assets/nit-logo.png">
+    <script src="./request.js"></script>
+    
+    <script>
+        check();
+        setInterval(function check(){
+  var  token = localStorage.getItem('idToken');
+  if(token){
+
+        }
+    else{
+        window.open("http://localhost/ushh1/src/main-src/login_main.html","_self");
+        // window.close();
+    }
+},1000);
+
+    </script>
+    <link rel="shortcut icon" type="image/png" href="./assets/nit-logo.png">
+</head>
+
+<body>
+    
+
+
+    <div class="main">
+    <div class="header">
+        <img class="logo" src="https://www.nitandhra.ac.in/main/images/nit-logo.png">
+        <h1 class="college">National Institute of Technology <br> Andhra Pradesh</h1>
+        
+        <div class="dropbtn">
+            <h1 class="info"><img src="" id="pic" class="icon"></h1>
+            
+            <div id="myDropdown" class="dropdown-content">
+                <p id="username"></p>
+                <p id="userregno"></p>
+                <button class="signo" onclick="signout()">Sign out</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="requests">
+
+        <div class="unavbar">
+            <h1 class="NIT"> Top Suggestions</h1>
+        </div>
+        <div class="container">
+        <div class="top_req" id ='top_req'>
+            
+        </div>
+        
+        <div class="left">
+                <div class="money">
+                    <h1>35,000</h1>
+                </div>
+                <div class="commmunity" onclick="window.open('./all_requests.html','_self')">
+                    <p class="com_h2">Community</p>
+                </div>
+                <div class="commmunity" onclick="window.open('./req_done.html','_self')">
+                    <p class="com_h2">Issues Addressed Thus Far</p>
+                </div>
+                <img src="./assets/discord.png" alt="discord" class="discord" onclick="window.open('https://discord.gg/N2h6zzz2m4')">
+            </div>
+        </div>
+</div>
+    
+
+    
+    <div class="bg">
+        <div class="pexel"></div>
+        <div class="pexel"></div>
+        <div class="pexel"></div>
+    </div>
+</div>
+<script>
+
+var info =   info(localStorage.getItem('idToken'));
+var rollno = info.family_name;
+var name = info.given_name;
+var pic = info.picture;
+// console.log(rollno);
+// console.log(name);
+// console.log(info);
+// console.log(pic);
+document.getElementById("username").innerHTML='hi  '+ name;
+document.getElementById("userregno").innerHTML=rollno;
+var pic1 =document.getElementById('pic');
+pic1.setAttribute('src',''+pic);
+
+   
+const commentsContainer = document.getElementById('top_req');
+
+function getcomments(){
+    const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'topr.php', true);
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    // success, display comments
+                    commentsContainer.innerHTML = this.responseText;
+                   
+                }
+
+            };
+            xhr.send();
+}
+
+
+
+getcomments();
+
+
+setInterval(function refresh(){
+getcomments();
+
+},10000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+</script>
+
+</body>
+
+</html>

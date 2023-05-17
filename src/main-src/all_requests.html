@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Suggestions page</title>
+    <link rel="stylesheet" href="request_page_css.css">
+    <script src="./request.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./assets/nit-logo.png">
+    <script>
+        // function myFunction() {
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
+
+        // window.onclick = function (event) {
+        //     if (!event.target.matches('.dropbtn')) {
+        //         document.getElementById("myDropdown").classList.remove('show');
+        //     }
+        // }
+    </script>
+    <script>
+        check();
+        setInterval(function check() {
+            var token = localStorage.getItem('idToken');
+            if (token) { }
+            else {
+                // window.open("http://localhost/ushh1/src/main-src/login_main.html","_self");
+                window.close();
+                // window.open("http://localhost/ushh1/src/main-src/login_main.html","_self");
+            }
+        }, 1000);
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <img class="logo" src="https://www.nitandhra.ac.in/main/images/nit-logo.png">
+        <h1 class="college">National Institute of Technology <br> Andhra Pradesh</h1>
+
+        <div class="dropdown">
+
+            <!-- <button class="dropbtn"></button> -->
+            <h1 class="info dropbtn"><img src="" id="pic" class="icon"></h1>
+            <div class="dropdown-content">
+                <p id="username"></p>
+                <p id="userregno"></p>
+                <button class="signout2" onclick="signout()">Sign out</button>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <div class="unavbar">
+        <h1 class="NIT"> All Suggestions</h1>
+    </div>
+
+
+
+    <div class="post">
+        <form method="post" action="" id="comment-form">
+            <input class="input" name="comment" type="text" placeholder="Type your suggestion">
+            <input type="hidden" id="regno" name="CREATER" value=>
+            <input type="submit" class="post_submit" value="Submit">
+        </form>
+    </div>
+    <button id="button" class="filter" data-new="false">NEWEST FIRST</button>
+
+
+
+
+
+    <div>
+        <div id="comments-container"> </div>
+
+        <div class="subreq1">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, minima.</p>
+            <div class="like_section">
+                <button class="like_btn">
+                    <img src="./assets/like.png" class="like">
+                    <span id="count">934</span>
+                </button>
+            </div>
+            <div class="line"></div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        var info = info(localStorage.getItem('idToken'));
+        var rollno = info.family_name;
+        var name = info.given_name;
+        var pic = info.picture;
+        var regno = document.getElementById('regno');
+        regno.setAttribute('value', '' + rollno);
+
+        document.getElementById("username").innerHTML = 'hi  ' + name;
+        document.getElementById("userregno").innerHTML = rollno;
+        var pic1 = document.getElementById('pic');
+        pic1.setAttribute('src', '' + pic);
+
+
+        let button = document.querySelector('#button');
+        button.addEventListener('click', function () {
+            if (button.getAttribute('data-new') === 'true') {
+                button.setAttribute('data-new', 'false');
+                button.innerHTML = "NEWEST FIRST"
+
+            } else {
+                button.setAttribute('data-new', 'true');
+                button.innerHTML = "SORT BY LIKES"
+
+
+            }
+            refreshComments();
+        });
+
+
+
+
+        const form = document.getElementById('comment-form');
+
+        const commentsContainer = document.getElementById('comments-container');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // prevent form from submitting normally
+
+            const CREATER = form.querySelector('input[name="CREATER"]').value;
+            if (form.querySelector('input[name="comment"]').value.trim() === '') { }
+            else {
+                const comment = form.querySelector('input[name="comment"]').value;
+
+
+                // send comment to server using AJAX
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'submit_comment.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                        // success, refresh comments
+                        refreshComments();
+
+                        form.reset();
+                    }
+                };
+
+                xhr.send(`CREATER=${encodeURIComponent(CREATER)}&comment=${encodeURIComponent(comment)}`);
+            }
+        });
+
+        function refreshComments() {
+
+            // fetch comments from server using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'get_comments.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    // success, display comments
+                    commentsContainer.innerHTML = this.responseText;
+                    likes();
+                }
+
+            };
+            // const status ='false';
+            const status = button.getAttribute('data-new');
+            console.log(status);
+            xhr.send(`s=${status}&rollno=${rollno}`);
+        }
+
+
+
+        function likes() {
+            const likeBtns = document.querySelectorAll('.subreq');
+            likeBtns.forEach((btn) => {
+                const lik = btn.querySelector('img');
+                lik.addEventListener('click', () => {
+
+lik.setAttribute('src',"./assets/liked.png");
+                    const ID = btn.getAttribute('data-ID');
+
+                    const rollno1 = rollno;
+
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'like.php');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function () {
+                        // Handle the response from the server
+
+                        const count = btn.querySelector('span');
+                        if (this.status === 201) {
+                            count.innerHTML = this.responseText;
+                        }
+
+
+                    };
+                    xhr.send(`ID=${ID}&rollno=${rollno1}`);
+                });
+            });
+        }
+
+
+        // load comments on page load
+        refreshComments();
+        setInterval(function refresh() {
+            refreshComments();
+
+        }, 10000);
+
+
+
+
+
+
+
+        
+
+    </script>
+
+
+
+    <div class="bg">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+
+
+    <!-- <div class="bg2">
+        <div class="pexel"></div>
+        <div class="pexel"></div>
+        <div class="pexel"></div>
+    </div> -->
+
+</body>
+
+</html>

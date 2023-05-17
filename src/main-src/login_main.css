@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        .blurbg{
+            filter: blur(4px);
+        }
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Poppins', sans-serif;
+			background-color: #e8fcff;
+		}
+
+		.container {
+            padding-left: 5%;
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.card {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 50px;
+			background: rgba(255,255,255,0.8);
+  			backdrop-filter: saturate(180%) blur(10px);
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			z-index: 1;
+			transition: all 0.3s ease-in-out;
+		}
+
+		h1 {
+			font-size: 28px;
+			font-weight: 600;
+			color: #333;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
+
+		label {
+			font-size: 14px;
+			font-weight: 500;
+			color: #666;
+			margin-bottom: 10px;
+			text-align: left;
+			width: 100%;
+		}
+
+		input[type="text"], input[type="password"] {
+			padding: 10px;
+			border: none;
+			border-bottom: 2px solid #ccc;
+			width: 100%;
+			margin-bottom: 30px;
+			font-size: 16px;
+			color: #555;
+			background-color: transparent;
+			transition: all 0.3s ease-in-out;
+		}
+
+		input[type="text"]:focus, input[type="password"]:focus {
+			border-bottom: 2px solid #3498db;
+			outline: none;
+		}
+
+		.donate{
+			transform: scale(1.2);
+			position: fixed;
+			right: 2%;
+			top: 5%;
+			padding: 10px 30px;
+			box-shadow: 0px 0px 20px rgb(145, 204, 255);
+			border-color: cyan;
+			border-radius: 20px 10px 20px 10px;
+			background-color: transparent;
+			color: black;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+			z-index: 10;
+			
+		}
+
+		.donate:hover{
+			transform: scale(1.3);
+		}
+
+		
+	
+
+		button[type="submit"] {
+			padding: 10px 30px;
+			border: none;
+			border-radius: 5px;
+			background-color: #3498db;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #2980b9;
+		}
+
+		a {
+			font-size: 14px;
+			color: #666;
+			text-decoration: none;
+			transition: all 0.3s ease-in-out;
+		}
+
+		a:hover {
+			color: #3498db;
+		}
+
+		.background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			z-index: -1;
+		}
+
+		.background-circles {
+			position: absolute;
+			top: -2%;
+			left: -2%;
+			width: 150%;
+			height: 150%;
+			transform: rotate(45deg);
+			z-index: -1;
+		}
+
+		.background-circles div {
+			position: absolute;
+            top: 0;
+		    left: 0;
+		background-color: rgb(65, 252, 255);
+		border-radius: 40%;
+		animation: animate 25s linear infinite;
+	}
+
+	.background-circles div:nth-child(1) {
+        background-color: #3498db;
+		width: 100px;
+		height: 100px;
+		top: 20%;
+		left: 10%;
+		animation-delay: 0s;
+	}
+
+	.background-circles div:nth-child(2) {
+        background-color: #3498db;
+		width: 70px;
+		height: 70px;
+		top: 50%;
+		left: 20%;
+		animation-delay: 0.9s;
+	}
+
+	.background-circles div:nth-child(3) {
+        background-color: #3498db;
+		width: 120px;
+		height: 120px;
+		top: 80%;
+		left: 30%;
+		animation-delay: 0.7s;
+	}
+
+	.background-circles div:nth-child(4) {
+        
+        background-color: #3498db;
+		width: 90px;
+		height: 90px;
+		top: 30%;
+		left: 60%;
+		animation-delay: 0.5s;
+	}
+
+	.background-circles div:nth-child(5) {
+        background-color: #3498db;
+		width: 60px;
+		height: 60px;
+		top: 70%;
+		left: 70%;
+		animation-delay: 1s;
+	}
+
+	.background-circles div:nth-child(6) {
+        background-color: #3498db;
+		width: 60px;
+		height: 60px;
+		top: 70%;
+		left: 70%;
+		animation-delay: 1s;
+	}
+
+	.background-circles div:nth-child(7) {
+        background-color: #3498db;
+		width: 60px;
+		height: 60px;
+		top: 50%;
+		left: 50%;
+		
+		animation-delay: 1s;
+	}
+
+	
+
+	@keyframes animate {
+		0% {
+			transform: translateY(0) rotate(0deg);
+			opacity: 1;
+			
+		}
+		100% {
+			transform: translateY(-1000px) rotate(360deg);
+			opacity: 0.3;
+		}
+	}
+
+    
+.illustration-button {
+    padding-top: 5%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .illustration-button img {
+            width: 350px;
+            height: auto;
+			background-color: #fff;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+  } 
+
+  .illustration-button:hover {
+    transform: scale(1.1);
+  }
+
+  .img2{
+    width: 50%;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    z-index: -1;
+  }
+ .g_id_signin{
+	padding-top: 5vh;
+ }
